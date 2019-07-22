@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Spring NINJA</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Rut</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Direccion</th>
+				<th>email</th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="persona : ${personas}">
+				<td><span th:text="${persona.id}"></span></td>
+				<td><span th:text="${persona.rut}"></span></td>
+				<td><span th:text="${persona.nombre}"></span></td>
+				<td><span th:text="${persona.apellido}"></span></td>
+				<td><span th:text="${persona.email}"></span></td>
+				<td><span th:text="${persona.direccion}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<form action=# th:action="@{/persona/addpersona}" th:object="${personaForm}" method="POST">
+		<p>Rut : <input type="text" th:field="*{rut}"/></p>
+		<p>Nombre : <input type="text" th:field="*{nombre}"/></p>
+		<p>Apellido : <input type="text" th:field="*{apellido}"/></p>
+		<p>Direccion : <input type="text" th:field="*{direccion}"/></p>
+		<p>email : <input type="text" th:field="*{email}"/></p>
+		<p>email : <input type="submit" value="SUBMIT"/></p>
+		
+	</form>
+	
+</body>
+</html>

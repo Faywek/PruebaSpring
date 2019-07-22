@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tabla Spring</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a>Persona</a>
+                        </li>
+                        <li class="active">
+                            <strong>Tabla Persona</strong>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+        	<div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Border Table </h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <table class="table table-bordered">
+                                <thead>
+	                                <tr>
+	                                    <th>ID</th>
+										<th>Rut</th>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Direccion</th>
+										<th>email</th>	
+	                                </tr>
+                                </thead>
+                                <tbody>
+	                                <tr th:each="persona : ${personas}">
+										<td><span th:text="${persona.id}"></span></td>
+										<td><span th:text="${persona.rut}"></span></td>
+										<td><span th:text="${persona.nombre}"></span></td>
+										<td><span th:text="${persona.apellido}"></span></td>
+										<td><span th:text="${persona.email}"></span></td>
+										<td><span th:text="${persona.direccion}"></span></td>
+									</tr>
+                                </tbody>
+                            </table>
+                            
+                            <form class="form-horizontal" action=# th:action="@{/persona/addpersona}" th:object="${personaForm}" method="POST">
+							
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="col-sm-4">
+											<p>Rut : </p>
+										</div>
+										<div class="col-sm-8">
+											<input type="text" th:field="*{rut}"/>
+										</div>										
+									</div>
+								</div>	
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="col-sm-4">
+											<p>Nombre : </p>
+										</div>
+										<div class="col-sm-8">
+											<input type="text" th:field="*{nombre}"/>
+										</div>										
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="col-sm-4">
+											<p>Apellido : </p>
+										</div>
+										<div class="col-sm-8">
+											<input type="text" th:field="*{apellido}"/>
+										</div>										
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="col-sm-4">
+											<p>Direccion : </p>
+										</div>
+										<div class="col-sm-8">
+											<input type="text" th:field="*{direccion}"/>
+										</div>										
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="col-sm-4">
+											<p>Email : </p>
+										</div>
+										<div class="col-sm-8">
+											<input type="text" th:field="*{email}"/>
+										</div>										
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-2">
+										<input type="submit" value="SUBMIT"/>
+									</div>									
+								</div>
+								
+							</form>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+       	 </div>
+        </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="/js/jquery-2.1.1.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Peity -->
+    <script src="/js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="/js/inspinia.js"></script>
+    <script src="/js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="/js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- Peity -->
+    <script src="/js/demo/peity-demo.js"></script>
+
+</body>
+</html>
